@@ -1,6 +1,6 @@
 :: create git repo
 set TICKET=first commit, based on .apicra tool
-set /P DESCRIPTION= < ..\.apicra\variable\DESCRIPTION.txt
+set /P DESCRIPTION= < ..\..\variable\DESCRIPTION.txt
 set GIT_USER=%~1
 set PROJ=%~2
 :: Prepare Variables
@@ -14,10 +14,10 @@ set PROJ_FOLDER=%ORG%-%PROJECT%
 )
 :: Make Request
 if "%ORG%"=="" (
-..\.apicra\curl-7.65.0-win32-mingw\bin\curl.exe -u "%GIT_USER%" https://api.github.com/user/repos -d "{\"name\":\"%PROJECT%\", \"description\":\"%DESCRIPTION%\"}"
+..\..\curl-7.65.0-win32-mingw\bin\curl.exe -u "%GIT_USER%" https://api.github.com/user/repos -d "{\"name\":\"%PROJECT%\", \"description\":\"%DESCRIPTION%\"}"
 set GIT_URL=https://github.com/%GIT_USER%/%PROJECT%.git
 ) else (
-..\.apicra\curl-7.65.0-win32-mingw\bin\curl.exe -u "%GIT_USER%" https://api.github.com/orgs/%ORG%/repos -d "{\"name\":\"%PROJECT%\", \"description\":\"%DESCRIPTION%\"}"
+..\..\curl-7.65.0-win32-mingw\bin\curl.exe -u "%GIT_USER%" https://api.github.com/orgs/%ORG%/repos -d "{\"name\":\"%PROJECT%\", \"description\":\"%DESCRIPTION%\"}"
 set GIT_URL=https://github.com/%ORG%/%PROJECT%.git
 )
 git init
@@ -33,5 +33,5 @@ git remote -v
 mkdir .apicra
 echo .apicra/ >> .gitignore
 git clone https://github.com/apicra/npm-github-win.git .apicra
-..\.apicra\-open.bat %GIT_URL%
+..\..\-open.bat %GIT_URL%
 ::..\.apicra\-apicra-download.bat

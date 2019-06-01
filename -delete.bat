@@ -12,7 +12,7 @@ set PROJ_FOLDER=%ORG%-%PROJECT%
 ::@ping -n 4 localhost> nul &&
 RMDIR /Q/S %PROJ_FOLDER%
 if "%ORG%"=="" (
-.apicra\curl-7.65.0-win32-mingw\bin\curl.exe -u "%GIT_USER%" -X DELETE https://api.github.com/repos/%GIT_USER%/%PROJECT%
+..\..\curl-7.65.0-win32-mingw\bin\curl.exe -u "%GIT_USER%" -X DELETE https://api.github.com/repos/%GIT_USER%/%PROJECT%
 ) else (
-.apicra\curl-7.65.0-win32-mingw\bin\curl.exe -u "%GIT_USER%" -X DELETE https://api.github.com/repos/%ORG%/%PROJECT%
+..\..\curl-7.65.0-win32-mingw\bin\curl.exe -u "%GIT_USER%" -X DELETE https://api.github.com/repos/%ORG%/%PROJECT%
 )
